@@ -11,9 +11,9 @@ public class DrawingArea extends JPanel {
     super.paintComponent(pen);
 
     Drawing.set(pen);
-
-    Train train = new Train();
-    train.draw();
+    
+   Scene scene = new Scene(); 
+     scene.draw();
 
   }
 

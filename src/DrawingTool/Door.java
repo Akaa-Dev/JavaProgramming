@@ -17,15 +17,49 @@ package DrawingTool;
  * 
  * }
  */
- public class Door{
-	 private int height =120;
-	 private int width =70;
+ public class Door extends RectangularObject{
+	 
+	 public Door() {
+		super(width, height);
+		
+	}
+	private static int height =120;
+	 private  static int width =70;
+	 private int doorCenter = width/2;
 	 
 	 public void draw(int left, int bottom){
 		 int abscissa = left;
 		 int ordinate = bottom;
+		 int doorLinePos = abscissa+doorCenter;
+		 int UPPERDOORLINESTART = bottom;
+		 int UPPERDOORLINEEND = UPPERDOORLINESTART+40;
+		 int LOWERDOORLINESTART = UPPERDOORLINESTART+70;
+		 int LOWERDOORLINEEND = LOWERDOORLINESTART+50;
 		 Drawing.pen().drawRect(abscissa,ordinate,width,height);
-		 Drawing.pen().drawLine(abscissa+135, 410, 435, 530);
+		 Drawing.pen().drawLine(doorLinePos, UPPERDOORLINESTART, doorLinePos, UPPERDOORLINEEND);
+		 Drawing.pen().drawLine(doorLinePos,LOWERDOORLINESTART,doorLinePos,LOWERDOORLINEEND);
+	 }
+	 //DoorButton
+	 public void draw(int left, int bottom, int shiftBy ) {//overloading
+		    int height = 20;
+		    int width = 30;
+		    int BUTTONPOS = left+125;
+		    int ordinate = bottom+50 ;
+		    Drawing.pen().drawOval(BUTTONPOS, ordinate, height, width); // door button
+		    Drawing.pen().fillOval(BUTTONPOS + shiftBy, ordinate, height, width);
+		  }
+	 public void drawPilotDoor(int left, int bottom) {
+		 //height=120;
+		 int width=30;
+		 int doorEnd =0;
+		 if(left<300) {
+			 doorEnd=left+2;
+		 }
+		 else{
+		   doorEnd=left+28;
+		 }
+		 Drawing.pen().drawRect(left,bottom,width,height);
+		 Drawing.pen().drawLine(doorEnd,bottom,doorEnd,bottom+height);
 	 }
 	 
  }

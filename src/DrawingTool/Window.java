@@ -29,18 +29,21 @@ package DrawingTool;
     Drawing.pen().drawRect(1260, 430, 45, 25);// pilot window 
      
   }*/
-  public class Window{
-	 private int width, height;
-	 private int WINDOWLEVEL =430;;
-	  
+  public class Window extends RectangularObject{
+	    private static  int height=25;
+		private static int width = 25; 
+		
 	  public Window() {
-		 height=25;
-		 width = 25;
-		 //windowLevel = 430;
+		 super(width,height);
+			
 	  }
-	  public void draw(int left) {
-		  int abscissa= left;
-		  //int ordinate= bottom;
-		  Drawing.pen().drawRect(abscissa, WINDOWLEVEL, width, height);
-	  }
+
+		/*
+		 * public void draw(int left, int windowLevel) { int abscissa= left;
+		 * Drawing.pen().drawRect(abscissa, windowLevel, width, height); }
+		 */
+	  @Override
+		public void draw(int left, int windowLevel) {
+		  Drawing.pen().drawRect(left , windowLevel,width ,height);
+		}
 }
