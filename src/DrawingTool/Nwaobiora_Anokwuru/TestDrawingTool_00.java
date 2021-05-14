@@ -23,4 +23,5 @@ public class TestDrawingTool_00 {
 		TestDrawingTool_00 anApplication = new TestDrawingTool_00("A drawing tool");
 		anApplication.addACanvas(new DrawingArea());
 	}
+
 }
